@@ -58,7 +58,7 @@ resource "azurerm_network_security_rule" "FIXED_IP_SSH" {
   network_security_group_name = azurerm_network_security_group.NSG1.name
 }
 
-resource "azurerm_subnet_network_security_group_association" "example" {
+resource "azurerm_subnet_network_security_group_association" "subnet1_nsg1" {
   subnet_id                 = azurerm_subnet.subnet1.id
   network_security_group_id = azurerm_network_security_group.NSG1.id
 }
