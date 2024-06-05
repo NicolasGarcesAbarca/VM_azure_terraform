@@ -1,3 +1,11 @@
+resource "azurerm_resource_group" "RGJump" {
+  name     = "JumpApp"
+  location = var.location
+  tags = {
+    evironment = "dev"
+  }
+}
+
 resource "azurerm_network_interface" "NicVmJump" {
   name                = "jumpVM-nic"
   location            = var.location
@@ -7,7 +15,6 @@ resource "azurerm_network_interface" "NicVmJump" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet1.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.nicjumppublicip.id
   }
 }
 
